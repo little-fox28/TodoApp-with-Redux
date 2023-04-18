@@ -5,12 +5,14 @@ import { v4 as uuidv4 } from "uuid";
 
 import Todo from "../Todo";
 import { addTodo } from "../../redux/actions";
-import { todoListSelector } from "../../redux/selectors";
+import { todoRemainingSelector } from "../../redux/selectors";
 
 export default function TodoList() {
   const dispatch = useDispatch();
   const [todoName, setTodoName] = useState("");
   const [priority, setPriority] = useState("Medium");
+
+  const todoList = useSelector(todoRemainingSelector);
 
   const handleAddTodo = () => {
     dispatch(
@@ -32,14 +34,17 @@ export default function TodoList() {
     setPriority(value);
   };
 
-  const todoList = useSelector(todoListSelector);
-
   return (
     <Row style={{ height: "calc(100% - 40px)" }}>
       <Col span={24} style={{ height: "calc(100% - 40px)", overflowY: "auto" }}>
         {todoList.map((todo) => {
           return (
-            <Todo key={todo.id} name={todo.name} priority={todo.priority} />
+            <Todo
+              key={todo.id}
+              name={todo.name}
+              priority={todo.priority}
+              completed={todo.completed}
+            />
           );
         })}
       </Col>
