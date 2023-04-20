@@ -1,4 +1,4 @@
-## Đây là source code của ứng dụng TODO APP bằng React + Redux
+## Đây là source code của ứng dụng TODO APP bằng React + Redux Toolkit + Redux Thunk
 Video tutorial: https://youtu.be/g_K1w8e0lLo \
 Live Demo: https://focused-engelbart-3d0ac1.netlify.app/
 
