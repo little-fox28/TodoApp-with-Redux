@@ -4,8 +4,8 @@ import { Col, Row, Input, Button, Select, Tag } from "antd";
 import { v4 as uuidv4 } from "uuid";
 
 import Todo from "../Todo";
-import { addTodo } from "../../redux/actions";
 import { todoRemainingSelector } from "../../redux/selectors";
+import todoSlice  from "./todoSlice";
 
 export default function TodoList() {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ export default function TodoList() {
 
   const handleAddTodo = () => {
     dispatch(
-      addTodo({
+      todoSlice.actions.addTodo({
         id: uuidv4(), //using "uuid" library. Auto generate id
         name: todoName,
         priority: priority,
