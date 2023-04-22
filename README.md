@@ -1,1 +1,1 @@
-## Đây là source code của ứng dụng TODO APP bằng React + Redux Toolkit + Redux Thunk
+## Here is the source code of TODO APP using React + Redux Toolkit + Redux Thunk
