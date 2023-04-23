@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import Todo from "../Todo";
 import { todoRemainingSelector } from "../../redux/selectors";
-import todoSlice  from "./todoSlice";
+import { addNewTodo } from "./todoSlice";
 
 export default function TodoList() {
   const dispatch = useDispatch();
@@ -15,14 +15,30 @@ export default function TodoList() {
   const todoList = useSelector(todoRemainingSelector);
 
   const handleAddTodo = () => {
+    // dispatch(
+    //   todoSlice.actions.addTodo({
+    //     id: uuidv4(), //using "uuid" library. Auto generate id
+    //     name: todoName,
+    //     priority: priority,
+    //     completed: false,
+    //   })
+    // );
     dispatch(
-      todoSlice.actions.addTodo({
+      addNewTodo({
         id: uuidv4(), //using "uuid" library. Auto generate id
         name: todoName,
         priority: priority,
         completed: false,
       })
     );
+    // dispatch(
+    //   addTodos({
+    //     id: uuidv4(), //using "uuid" library. Auto generate id
+    //     name: todoName,
+    //     priority: priority,
+    //     completed: false,
+    //   })
+    // );
     setTodoName(" ");
     setPriority("Medium");
   };
